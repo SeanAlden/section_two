@@ -1,0 +1,19 @@
+1.	Menampilkan semua user yang pernah melakukan order dengan total > 1.000.000.
+
+SELECT DISTINCT u.*
+FROM users u
+JOIN orders o ON u.id = o.user_id
+WHERE o.total > 1000000;
+
+2.	Menghitung rata-rata order per user.
+
+SELECT u.id, u.name, AVG(o.total) AS avg_order
+FROM users u
+JOIN orders o ON u.id = o.user_id
+GROUP BY u.id, u.name;
+
+3.	Update status order menjadi "completed" jika total > 500.000.
+
+UPDATE orders
+SET status = 'completed'
+WHERE total > 500000;
