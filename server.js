@@ -5,6 +5,8 @@ const cartRoutes = require("./src/routes/cart-route");
 
 const app = express();
 
+const dbQueriesRouter = require('./src/routes/dbQueries');
+
 app.use(express.json());        
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -15,6 +17,8 @@ app.use("/carts", cartRoutes);
 app.get("/", (req, res) => {
   res.send("Simple REST API running 🚀");
 });
+
+app.use('/db', dbQueriesRouter);
 
 const PORT = 3000;
 app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));
