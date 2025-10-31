@@ -3,7 +3,7 @@ const router = express.Router();
 const products = require("../data/product-data");
 const carts = require("../data/cart-data");
 
-router.post("/", (req, res) => {
+router.post("/cart", (req, res) => {
   const { productId, quantity } = req.body;
   const product = products.find(p => p.id === productId);
 
@@ -20,7 +20,7 @@ router.post("/", (req, res) => {
   res.status(201).json(newCart);
 });
 
-router.get("/", (req, res) => {
+router.get("/carts", (req, res) => {
   res.json(carts);
 });
 

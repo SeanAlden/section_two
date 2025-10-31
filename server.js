@@ -11,8 +11,8 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use("/products", productRoutes);
-app.use("/carts", cartRoutes);
+app.use("/", productRoutes);
+app.use("/", cartRoutes);
 
 app.get("/", (req, res) => {
   res.send("Simple REST API running 🚀");
